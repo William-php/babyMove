@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { TamaguiProvider, createTamagui } from '@tamagui/core'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import { config } from '@tamagui/config/v3'
+import ViewRegister from './src/components/viewComponents/viewRegister'
+import { View } from "react-native";
+// you usually export this from a tamagui.config.ts file
+
+const tamaguiConfig = createTamagui(config)
+// TypeScript types across all Tamagui APIs
+
+type Conf = typeof tamaguiConfig
+
+declare module '@tamagui/core' {
+
+  interface TamaguiCustomConfig extends Conf {}
+
 }
+export default function App() {
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return (
+
+    <TamaguiProvider config={tamaguiConfig}>
+      <View>
+        <ViewRegister/>
+      </View>
+    </TamaguiProvider>
+
+  )
+
+}
