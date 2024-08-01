@@ -3,6 +3,7 @@ import { TamaguiProvider, createTamagui } from '@tamagui/core'
 import { config } from '@tamagui/config/v3'
 import ViewRegister from './src/components/viewComponents/viewRegister'
 import { View } from "react-native";
+import ViewList from './src/components/semanticComponents/viewList';
 // you usually export this from a tamagui.config.ts file
 
 const tamaguiConfig = createTamagui(config)
@@ -21,7 +22,7 @@ export default function App() {
 
     <TamaguiProvider config={tamaguiConfig}>
       <View>
-        <ViewRegister/>
+        <ViewList/>
       </View>
     </TamaguiProvider>
 

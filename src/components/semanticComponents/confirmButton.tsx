@@ -13,12 +13,12 @@ export default function ConfirmButton() {
             >
                 Continuar
             </Button>
-            <Spinner
+            {/*<Spinner
                 display={isSpinner ? "unset" : "none"} 
                 size="large" 
                 color="#5B21B6"
                 
-            />
+            />*/}
         </YStack>
     );
 }
