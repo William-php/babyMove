@@ -40,25 +40,22 @@ export default function FormRegister() {
                 />
             </YStack>
             <XStack style={style.row}>
-                <YStack style={style.inputContainer}>
+                <YStack style={style.inputContainerX}>
                     <Text>Data de Nascimento</Text>
                     <Input 
                         style={style.input}
                         placeholder="dd/MM/yyyy"
-                        placeholderTextColor={"#8F9098"}
-                        secureTextEntry={true}
+                        placeholderTextColor={"#8F9098"}                        
                     />
                 </YStack>
-                <YStack style={style.inputContainer}>
-                    <Text>Gênero</Text>
-                    <Input 
+                <YStack style={style.inputContainerX}>
+                    <Text>Telefone</Text>
+                    <Input
                         style={style.input}
-                        placeholder="Gênero"
+                        placeholder="71 999999999"
                         placeholderTextColor={"#8F9098"}
-                        secureTextEntry={true}
                     />
                 </YStack>
-                
             </XStack>
             
         </YStack>
@@ -72,7 +69,7 @@ const style = StyleSheet.create({
         gap: 16
     },
     inputContainer: {
-        gap: 8
+        gap: 8,
     },
     label: {
         fontSize: 12,
@@ -90,14 +87,13 @@ const style = StyleSheet.create({
         borderStyle: "solid",
         borderColor: "#C5C6CC"
     },
-    inputCol2: {
-        width: "50%"
+    inputContainerX: {
+        width: "45%",
+        gap: 8
     },
     row: {
         alignItems: "center",
         justifyContent: "space-between",
-        
-        maxWidth: "50%",
         gap: 16
     }
 })

@@ -15,7 +15,7 @@ export default function CheckBoxRegister() {
                     </Checkbox.Indicator>
                 </Checkbox>
             </YStack>
-            <YStack>
+            <YStack style={style.label}>
                 <Text htmlFor={"checkbox"} >
                     Eu declaro que lí e aceito os Termos de Serviço e a Política de Privacidade.
                 </Text>
@@ -26,27 +26,28 @@ export default function CheckBoxRegister() {
 
 const style = StyleSheet.create({
     container: {
-        maxWidth: "90%",
+        maxWidth: "100%",
         alignItems: "center",
         marginTop: 24,
         marginBottom: 24,
         justifyContent: "center",
         alignContent: "center",
-        gap: 12
+        gap: 12,
+        textAlign: "justify"
         
         
     },
     check: {
-        
         borderRadius: 6,
         borderWidth: 1,
         borderStyle: "solid",
         borderColor: "#C5C6CC"
     },
     label: {
+        width: 275,
         justifyContent: "center",
         alignContent: "center",
-
+        textAlign: "justify",
         paddingVertical: 4
     }
 })

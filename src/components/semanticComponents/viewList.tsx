@@ -1,4 +1,4 @@
-import { Image } from "expo-image";
+import { Image } from "tamagui";
 import { XStack, YStack } from "@tamagui/stacks";
 import React from "react";
 import { StyleSheet } from "react-native";
@@ -9,23 +9,26 @@ import { Text } from "tamagui";
 export default function ViewList() {
     return (
         <XStack style={styles.container}>
-            <YStack>
-
+            <YStack style={styles.textContainer}>
+                    <Text style={styles.h1}>
+                        Rogerio Ceni
+                    </Text>
+                    <Text>
+                        Obstetra
+                    </Text>
+                    <Text>
+                        (71) 99999-9999
+                    </Text>
             </YStack>
-            <YStack>
-                <Text>
-                    Testesssss
-                </Text>
-            </YStack>
-            <YStack>
+            <YStack style={styles.image}>
                 <Image
-                    source={{ 
-                        width: 200,
-                        height: 200,
-                        uri: 'assets/imgs/breakfast.jpg' 
-                    }}                    
-                />
-                
+                    style={styles.image}
+                    source={{
+                        uri: "../../../assets/imgs/happy-young-doctor-looking-time.jpg",
+                        width: 100,
+                        height: 119
+                    }}
+                />                
             </YStack>
         </XStack>
     );
@@ -33,16 +36,37 @@ export default function ViewList() {
 
 const styles = StyleSheet.create({
     container: {
-        width: 100,
+        margin: 24,
+        width: "100%",
         alignItems: "center",
-        justifyContent: "center",
-        height: "auto",
+        justifyContent: "space-between",
+        height: 120,
 
         borderWidth: 1,
-        borderColor: "#C5C6CC"
+        borderColor: "#C5C6CC",
+        borderRadius: 12
     },
-    image: {
-        maxWidth: "100%",
-        height: 100
+    textContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 16,
+        gap: 4,
+        
+    },
+    image: {        
+        borderTopEndRadius: 12,
+        borderBottomEndRadius: 12
+    },
+    h1: {
+        fontStyle: "normal",
+        fontWeight: "500",
+        fontSize: 16,
+        color: "#1D1B20"
+    },
+    info: {
+        fontStyle: "normal",
+        fontWeight: "400",
+        fontSize: 14,
+        color: "#1D1B20"
     }
 })

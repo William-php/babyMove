@@ -6,26 +6,28 @@ import { StyleSheet } from 'react-native';
 import TitleRegister from '../semanticComponents/titleRegister';
 import CheckBoxRegister from '../semanticComponents/checkBoxRegister';
 import ConfirmButton from '../semanticComponents/confirmButton';
+import { ScrollView } from 'tamagui';
 export default function ViewRegister() {
     return (
-        <View style={style.container}>
+        <View style={styles.container}>            
             <TitleRegister/>
             <FormRegister/>
             <CheckBoxRegister/>
-            <ConfirmButton/>
+            <ConfirmButton/>                
         </View>
     );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        height: "100%",
+        height: "auto",
         width: "100%",
 
         justifyContent: "center",
         alignItems: "center",
 
         paddingVertical: 24,
-        paddingHorizontal: 24
+        paddingHorizontal: 24,
+        
     }
 })
