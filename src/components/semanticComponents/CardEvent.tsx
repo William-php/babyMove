@@ -1,11 +1,14 @@
+
 import React, { useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { Button, Image, Input, XStack, YStack } from 'tamagui';
+import { Plus } from "@tamagui/lucide-icons"
 
 interface CardEvent {
     event: string
     label: string
-    listEvents: Array<string>
+    listEvents: Array<string>,
+    color: string,
 }
 function generateListView(listEvents: Array<string>): any {
     console.log(listEvents);
@@ -22,64 +25,12 @@ function onlyInput(): void {
     if (!isActiveList) setActiveInput(!isActiveInput);
 }
 
-    return (
-        <YStack style = {styles.container}>
-            <XStack style = {styles.containerX}
-                onPress = { () => setActiveList(!isActiveList)}
-            >
-                <YStack style = {styles.textContainers}>
-                    <Text style = {styles.h2}>
-                        {props.event}
-                    </Text>
-                    <Text style = {styles.p}>
-                        {props.label}
-                    </Text>
-                </YStack>
-
-                <YStack
-                >
-                    <Button onPress = { () => onlyInput()}
-                        backgroundColor={"#fff"}
-                        style = {styles.btnPlus}
-                    >+</Button>
-                </YStack>
-            </XStack>
-            {isActiveList ? 
-                <YStack onPress = {() => setActiveList(false)}
-                    style = {styles.viewList}
-                >
-                    {generateListView(props.listEvents)}
-                    
-                </YStack> : null}
-
-            {isActiveInput ? 
-                <XStack style = {styles.containerActiveInput}>
-                    
-                    <Input
-                        value = {inputValue}
-                        onChangeText={(text: string) => setInputValue(text)}
-                        placeholder= 'Digite um sintoma'
-                        style = {{width: "75%"}}
-                    />
-                    <Button onPress = {() => {
-                        props.listEvents.push(inputValue);
-                        setInputValue("");
-                        setActiveInput(false);
-                    }}
-                        style = {{color: "#5B21B6"}}
-                    >Save</Button>
-                </XStack> : null}            
-        </YStack>
-        
-    );
-}
 const styles = StyleSheet.create({
-    container: {
-        borderWidth: 1,
+    container: {        
         borderRadius: 12,
         width: "100%",
+        padding: 16,
 
-        padding: 16
     },
     containerX: {
         width: "100%",
@@ -104,9 +55,10 @@ const styles = StyleSheet.create({
         fontWeight: "400"
     },
     btnPlus: {
-        backgroundColor: "#fff",
-        color: "#5B21B6",
-        fontSize: 24
+        backgroundColor: props.color,
+        color: "#1D1B20",
+        fontSize: 24,
+        
     },
     containerActiveInput: {
         width: "100%",
@@ -118,4 +70,58 @@ const styles = StyleSheet.create({
         gap: 4,
         marginLeft: 16
     }
-})
+});
+
+    return (
+        <YStack style = {styles.container}
+            backgroundColor = {props.color}
+        >
+            <XStack style = {styles.containerX}
+                onPress = { () => setActiveList(!isActiveList)}
+            >
+                <YStack style = {styles.textContainers}>
+                    <Text style = {styles.h2}>
+                        {props.event}
+                    </Text>
+                    <Text style = {styles.p}>
+                        {props.label}
+                    </Text>
+                </YStack>
+
+                <YStack
+                >
+                    <Plus onPress = { () => onlyInput()}
+                        backgroundColor = {props.color}
+                        style = {styles.btnPlus}                        
+                    />
+                </YStack>
+            </XStack>
+            {isActiveList ? 
+                <YStack onPress = {() => setActiveList(false)}
+                    style = {styles.viewList}
+                >
+                    {generateListView(props.listEvents)}
+                    
+                </YStack> : null}
+
+            {isActiveInput ? 
+                <XStack style = {styles.containerActiveInput}>
+                    
+                    <Input
+                        value = {inputValue}
+                        onChangeText={(text: string) => setInputValue(text)}
+                        placeholder= 'Digite um sintoma'
+                        style = {{width: "75%"}}
+                    />
+                    <Button onPress = {() => {
+                        props.listEvents.push(inputValue);
+                        setInputValue("");
+                        setActiveInput(false);
+                    }}
+                        style = {{backgroundColor: props.color}}
+                    >Save</Button>
+                </XStack> : null}            
+        </YStack>
+        
+    );
+}

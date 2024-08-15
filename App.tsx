@@ -7,7 +7,11 @@ import ViewList from './src/components/semanticComponents/viewList';
 import Header from './src/components/containerComponents/Header';
 import CardTypeMeal from './src/components/semanticComponents/CardTypeMeal';
 import CardEvent from './src/components/semanticComponents/CardEvent';
+import Profile from './src/components/semanticComponents/Profile';
+
 import { ScrollView } from 'tamagui';
+import Notification from './src/components/semanticComponents/Notification';
+import { Bell } from '@tamagui/lucide-icons';
 
 // you usually export this from a tamagui.config.ts file
 
@@ -33,22 +37,27 @@ export default function App() {
                 maxHeight={"auto"}
         >
           <Header isActive={isActive}/>
+          
           <CardEvent
             event = "Sintomas"
             label = "Teste"
             listEvents = {[]}
+            color = '#C9BFFE'
           />
-          {/* <CardTypeMeal
-                image = "assets/imgs/breakfast.jpg"
+           <CardTypeMeal
+                image = {
+                    {url: require("./assets/imgs/breakfast.jpg")}
+                }
                 typeMeal = "Café da manhã"
                 color = "#FFF4E4"
             />
+          {/*
           <ViewList
             name="William Ferreira"
             func="Obstreta"
             phoneNumber="71 99999-9999"
           />
-          <ViewRegister/> */}
+          <ViewRegister/>*/}
         </ScrollView>
       </View>
     </TamaguiProvider>

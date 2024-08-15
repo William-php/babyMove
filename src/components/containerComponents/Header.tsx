@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Avatar, Circle, Image, Text, XStack, YStack } from "tamagui";
 import { ActiveRouteInterface } from "../../interfaces/ActiveRouteInterface";
+import Profile from "../semanticComponents/Profile";
+import Notification from "../semanticComponents/Notification";
+import { Bell } from "@tamagui/lucide-icons";
 
 
 
@@ -10,17 +13,18 @@ export default function Header(props: ActiveRouteInterface) {
     return (
         route ?
         < XStack style={styles.container} >
-            <XStack style={styles.containerAvatar}>
-                <Avatar circular size="$6">
-                    <Avatar.Image
-                        accessibilityLabel="cam"
-                        src="../../../assets/imgs/avatarimg.jpeg"
-                    />
-                </Avatar>
-                <Text>Hi, Sara</Text>
-            </XStack>
+            <Profile
+                image = {
+                    {url: require("../../../assets/imgs/avatarimg.jpeg")}
+                }
+                name = "Sara"
+          />
             <YStack>
-                <Image
+                <Notification
+                    icon = {Bell}
+                    count = { 5 }
+                />
+                {/*<Image
                     source={{
                         uri:"../../../assets/imgs/notification.svg",
                         width: 24,
@@ -34,7 +38,7 @@ export default function Header(props: ActiveRouteInterface) {
                     
                 > 
                     <Text style={styles.circleText}>3</Text>
-                </Circle>
+                </Circle>*/}
             </YStack>
             
         </XStack> : 

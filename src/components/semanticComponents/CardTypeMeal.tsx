@@ -3,13 +3,39 @@ import { StyleSheet } from "react-native";
 import { Image, XStack, YStack } from "tamagui";
 import { Text } from "react-native";
 
-
+interface ImageInterface {
+    url: any
+}
 interface CardTypeMeal {
-    image: string
+    image: ImageInterface
     typeMeal: string
     color: string
 }
 export default function CardTypeMeal(props: CardTypeMeal) {
+    const styles = StyleSheet.create({
+        container: {
+            width: "100%",
+            height: 120,
+            gap: 24,
+            borderRadius: 12,
+        },
+        textContainer: {
+            textAlign: "center",
+            justifyContent: "center",
+            paddingHorizontal: 24
+        },
+        image: {
+            borderRadius: 12,
+            width: 100,
+            height: "100%"
+        },
+        p: {
+            fontSize: 18,
+            fontStyle: "normal",
+            fontWeight: "900",
+            color: "#000"
+        }
+    });
     return (
         <XStack 
             style = {styles.container}
@@ -18,11 +44,7 @@ export default function CardTypeMeal(props: CardTypeMeal) {
             <YStack >    
                 <Image
                     style = {styles.image}
-                    source = {{
-                        uri: "assets/imgs/breakfast.jpg",
-                        width: 120,
-                        height: 120
-                    }}
+                    source = {props.image.url}
                 />
             </YStack>
             <YStack 
@@ -36,31 +58,6 @@ export default function CardTypeMeal(props: CardTypeMeal) {
                 </Text>
             </YStack>
         </XStack>
-        
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        width: "100%",
-        height: 120,
-        gap: 24,
-        borderRadius: 12,        
-        
-    },
-    textContainer: {
-        textAlign: "center",
-        justifyContent: "center",
-        paddingHorizontal: 24
-    },
-    image: {
-        borderRadius: 12
-    },
-    p: {
-        fontSize: 18,
-        fontStyle: "normal",
-        fontWeight: "900",
-
-        color: "#000"
-    }
-});
