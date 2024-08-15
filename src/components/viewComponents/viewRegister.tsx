@@ -7,6 +7,7 @@ import TitleRegister from '../semanticComponents/titleRegister';
 import CheckBoxRegister from '../semanticComponents/checkBoxRegister';
 import ConfirmButton from '../semanticComponents/confirmButton';
 import { ScrollView } from 'tamagui';
+import CardTypeMeal from '../semanticComponents/CardTypeMeal';
 export default function ViewRegister() {
     return (
         <View style={styles.container}>            

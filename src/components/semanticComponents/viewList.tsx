@@ -5,19 +5,23 @@ import { StyleSheet } from "react-native";
 import { Text } from "tamagui";
 
 //import breakFastImage from "src\components\semanticComponents\breakfast.jpg";
-
-export default function ViewList() {
+interface Doctor {
+    name: string,
+    func: string,
+    phoneNumber: string
+} 
+export default function ViewList(props: Doctor) {
     return (
         <XStack style={styles.container}>
             <YStack style={styles.textContainer}>
                     <Text style={styles.h1}>
-                        Rogerio Ceni
+                        {props.name}
                     </Text>
-                    <Text>
-                        Obstetra
+                    <Text style={styles.info}>
+                        {props.func}
                     </Text>
-                    <Text>
-                        (71) 99999-9999
+                    <Text style={styles.info}>
+                        {props.phoneNumber}
                     </Text>
             </YStack>
             <YStack style={styles.image}>
@@ -36,7 +40,7 @@ export default function ViewList() {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 24,
+        
         width: "100%",
         alignItems: "center",
         justifyContent: "space-between",
@@ -47,8 +51,7 @@ const styles = StyleSheet.create({
         borderRadius: 12
     },
     textContainer: {
-        justifyContent: "center",
-        alignItems: "center",
+        textAlign: "left",
         padding: 16,
         gap: 4,
         
@@ -67,6 +70,7 @@ const styles = StyleSheet.create({
         fontStyle: "normal",
         fontWeight: "400",
         fontSize: 14,
-        color: "#1D1B20"
+        color: "#1D1B20",
+        
     }
 })

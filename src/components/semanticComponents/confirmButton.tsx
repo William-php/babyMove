@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Button, Spinner, YStack } from "tamagui";
+import { ActiveRouteInterface } from "../../interfaces/ActiveRouteInterface";
 //test
+
 export default function ConfirmButton() {
+    // const sendDataToParent = (data: boolean): boolean => {
+    //     return data;
+    // }
+
     const [isSpinner, setSpinner] = useState(false);
     return (
         <YStack style={style.container}>
             <Button 
                 style={style.button}
-                onPress={ (value: any) => setSpinner(true)}
+                //onPress={ () => sendDataToParent(!props.isActive) }
                 
             >
                 Continuar

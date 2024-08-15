@@ -39,6 +39,14 @@ export default function FormRegister() {
                     secureTextEntry={true}
                 />
             </YStack>
+            <YStack style={style.inputContainer}>
+                <Text>Endereço</Text>
+                <Input
+                    style={style.input}
+                    placeholder="Seu endereço"
+                    placeholderTextColor={"#8F9098"}
+                />
+            </YStack>
             <XStack style={style.row}>
                 <YStack style={style.inputContainerX}>
                     <Text>Data de Nascimento</Text>

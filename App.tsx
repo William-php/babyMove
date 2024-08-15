@@ -5,7 +5,10 @@ import ViewRegister from './src/components/viewComponents/viewRegister'
 import { StyleSheet, View } from "react-native";
 import ViewList from './src/components/semanticComponents/viewList';
 import Header from './src/components/containerComponents/Header';
+import CardTypeMeal from './src/components/semanticComponents/CardTypeMeal';
+import CardEvent from './src/components/semanticComponents/CardEvent';
 import { ScrollView } from 'tamagui';
+
 // you usually export this from a tamagui.config.ts file
 
 const tamaguiConfig = createTamagui(config)
@@ -19,7 +22,7 @@ declare module '@tamagui/core' {
 
 }
 export default function App() {
-
+  const isActive: boolean = true;
   return (
 
     <TamaguiProvider config={tamaguiConfig}>
@@ -29,9 +32,23 @@ export default function App() {
                 padding="$3"
                 maxHeight={"auto"}
         >
-          <Header/>
-          <ViewList/>
-          <ViewRegister/>
+          <Header isActive={isActive}/>
+          <CardEvent
+            event = "Sintomas"
+            label = "Teste"
+            listEvents = {[]}
+          />
+          {/* <CardTypeMeal
+                image = "assets/imgs/breakfast.jpg"
+                typeMeal = "Café da manhã"
+                color = "#FFF4E4"
+            />
+          <ViewList
+            name="William Ferreira"
+            func="Obstreta"
+            phoneNumber="71 99999-9999"
+          />
+          <ViewRegister/> */}
         </ScrollView>
       </View>
     </TamaguiProvider>

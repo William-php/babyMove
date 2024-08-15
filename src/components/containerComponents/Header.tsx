@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Avatar, Circle, Image, Text, XStack, YStack } from "tamagui";
+import { ActiveRouteInterface } from "../../interfaces/ActiveRouteInterface";
 
-export default function Header() {
+
+
+export default function Header(props: ActiveRouteInterface) {
+    const [route, setRoute] = useState(props.isActive)
     return (
-        <XStack style={styles.container}>
+        route ?
+        < XStack style={styles.container} >
             <XStack style={styles.containerAvatar}>
                 <Avatar circular size="$6">
                     <Avatar.Image
@@ -32,8 +37,11 @@ export default function Header() {
                 </Circle>
             </YStack>
             
-        </XStack>
-    )
+        </XStack> : 
+        <YStack>
+                    <Text>Teste</Text>
+        </YStack>
+    ) 
 }
 
 const styles = StyleSheet.create({
@@ -43,9 +51,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         
-        paddingLeft: 24,
-        paddingRight: 24,
-        paddingTop: 32,
+        // paddingLeft: 24,
+        // paddingRight: 24,
+        // paddingTop: 32,
 
         marginBottom: 16
     },
@@ -65,4 +73,4 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         color: "#000"
     }
-})
+});
