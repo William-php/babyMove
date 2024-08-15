@@ -31,7 +31,7 @@ function onlyInput(): void {
                     <Text style = {styles.h2}>
                         {props.event}
                     </Text>
-                    <Text>
+                    <Text style = {styles.p}>
                         {props.label}
                     </Text>
                 </YStack>
@@ -40,6 +40,7 @@ function onlyInput(): void {
                 >
                     <Button onPress = { () => onlyInput()}
                         backgroundColor={"#fff"}
+                        style = {styles.btnPlus}
                     >+</Button>
                 </YStack>
             </XStack>
@@ -64,7 +65,9 @@ function onlyInput(): void {
                         props.listEvents.push(inputValue);
                         setInputValue("");
                         setActiveInput(false);
-                    }}>Save</Button>
+                    }}
+                        style = {{color: "#5B21B6"}}
+                    >Save</Button>
                 </XStack> : null}            
         </YStack>
         
@@ -95,8 +98,15 @@ const styles = StyleSheet.create({
         fontWeight: "500",
 
     },
+    p: {
+        color: "#1D1B20",
+        fontSize: 14,
+        fontWeight: "400"
+    },
     btnPlus: {
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        color: "#5B21B6",
+        fontSize: 24
     },
     containerActiveInput: {
         width: "100%",
