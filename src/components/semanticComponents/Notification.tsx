@@ -18,12 +18,14 @@ export default function Notification(props: Notification) {
         circleNotification: {
             position: "absolute",
             zIndex: 1,
-            bottom: 24,
-            left: 16,
+            bottom: "40%",
+            left: "48%",
             backgroundColor: "#F6A6A9",
             textAlign: "center",
             justifyContent: "center",
             alignItems: "center",
+            width: 16,
+            height: 16
             
         },
         circleText: {
@@ -31,7 +33,7 @@ export default function Notification(props: Notification) {
             fontFamily: "normal",
             fontWeight: "500",
             color: "#000",
-            fontSize: 10
+            fontSize: 11
         }
 
     });

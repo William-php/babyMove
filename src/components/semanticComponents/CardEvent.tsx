@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { Button, Image, Input, XStack, YStack } from 'tamagui';
-import { Plus } from "@tamagui/lucide-icons"
+import { Plus } from "@tamagui/lucide-icons";
 
 interface CardEvent {
     event: string
@@ -44,15 +44,17 @@ const styles = StyleSheet.create({
     },
     h2: {
         color: "#1D1B20",
-        fontSize: 16,
+        fontSize: 20,
         fontStyle: "normal",
-        fontWeight: "500",
+        fontWeight: "bold",
 
     },
     p: {
+        maxWidth: 300,
         color: "#1D1B20",
         fontSize: 14,
-        fontWeight: "400"
+        fontWeight: "400",
+        textAlign: "justify"
     },
     btnPlus: {
         backgroundColor: props.color,

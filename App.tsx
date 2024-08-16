@@ -40,7 +40,7 @@ export default function App() {
           
           <CardEvent
             event = "Sintomas"
-            label = "Teste"
+            label = "Clique no + para adicionar sintomas. Clique em qualquer outra área dessa caixa para visualizar a listagem de sintomas"
             listEvents = {[]}
             color = '#C9BFFE'
           />
