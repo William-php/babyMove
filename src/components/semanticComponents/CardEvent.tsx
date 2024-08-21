@@ -10,7 +10,7 @@ interface CardEvent {
     listEvents: Array<string>,
     color: string,
 }
-function generateListView(listEvents: Array<string>): any {
+function generateListView(listEvents: Array<string>): Array<React.JSX.Element> {
     console.log(listEvents);
     const listView = listEvents.map( (value: string, index: number) => <Text>{index + 1} - {value}</Text>);
     return listView;

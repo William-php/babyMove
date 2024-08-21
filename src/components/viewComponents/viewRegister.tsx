@@ -1,20 +1,21 @@
 import { View } from '@tamagui/core';
 import React from 'react';
 import { Text } from '@tamagui/core';
-import FormRegister from '../semanticComponents/formRegister';
+import FormRegister from './userFormView';
 import { StyleSheet } from 'react-native';
 import TitleRegister from '../semanticComponents/titleRegister';
 import CheckBoxRegister from '../semanticComponents/checkBoxRegister';
-import ConfirmButton from '../semanticComponents/confirmButton';
+import ConfirmButton from '../semanticComponents/ModifiedButton';
 import { ScrollView } from 'tamagui';
 import CardTypeMeal from '../semanticComponents/CardTypeMeal';
+import UserFormView from './userFormView';
 export default function ViewRegister() {
     return (
         <View style={styles.container}>            
             <TitleRegister/>
-            <FormRegister/>
+            <UserFormView/>
             <CheckBoxRegister/>
-            <ConfirmButton/>                
+            
         </View>
     );
 }
@@ -31,4 +32,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         
     }
-})
+});

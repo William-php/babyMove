@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import { StyleSheet } from "react-native";
 import { Image, XStack, YStack } from "tamagui";
 import { Text } from "react-native";
@@ -7,16 +7,26 @@ import { Text } from "react-native";
 interface ImageInterface {
     url: any
 }
-interface CardTypeMeal {
-    image: ImageInterface
-    typeMeal: string
+interface CardMeal {
+    type: string,
+    date: Date,
+    hour: number,
+    minutes: number,
+    icon: ImageInterface,
     color: string
 }
-export default function CardTypeMeal(props: CardTypeMeal) {
+function convertDate(date: Date): string {
+    const DAY = date.getDay();
+    const MONTH = date.getMonth();
+    const YEAR = date.getFullYear();
+    const FULLDATE = `${DAY}/${MONTH}/${YEAR}`;
+    return FULLDATE ? FULLDATE : "Date is not found";
+}
+export default function CardMeal(props: any) {
     const styles = StyleSheet.create({
         container: {
             width: "100%",
-            height: 120,
+            height: 84,
             gap: 24,
             borderRadius: 12,
         },
@@ -31,10 +41,18 @@ export default function CardTypeMeal(props: CardTypeMeal) {
             height: "100%"
         },
         p: {
-            fontSize: 18,
+            fontSize: 24,
             fontStyle: "normal",
             fontWeight: "900",
             color: "#000"
+        },
+        p2: {
+            fontSize: 14,
+            fontStyle: "normal",
+            fontWeight: "400",
+            color: "#1D1B20",
+            lineHeight: 20,
+            letterSpacing: 0.25
         }
     });
     return (
@@ -45,7 +63,7 @@ export default function CardTypeMeal(props: CardTypeMeal) {
             <YStack >    
                 <Image
                     style = {styles.image}
-                    source = {props.image.url}
+                    source = {props.icon.url}
                 />
             </YStack>
             <YStack 
@@ -53,13 +71,16 @@ export default function CardTypeMeal(props: CardTypeMeal) {
                 style = {styles.textContainer}
             >
                 <Text
-                    style={styles.p}
+                    style = {styles.p}
                 >
-                    {props.typeMeal}
+                    {props.type}
+                </Text>
+                <Text
+                    style = {styles.p2}
+                >
+                    {convertDate(props.date)} às {props.hour}:{props.minutes}AM
                 </Text>
             </YStack>
         </XStack>
     );
 }
-
-//test2
