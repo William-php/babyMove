@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
+    "@tamagui/animations-css": "^1.108.4",
     "@tamagui/config": "^1.106.0",
     "@tamagui/core": "^1.106.0",
     "@tamagui/lucide-icons": "1.106",

@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 /*tamagui*/
 import { TamaguiProvider, createTamagui } from '@tamagui/core'
 import { config } from '@tamagui/config/v3'
-import { ScrollView } from 'tamagui';
+import { PortalProvider, ScrollView } from 'tamagui';
 import { Bell } from '@tamagui/lucide-icons';
 
 /*container components*/
@@ -44,8 +44,9 @@ const items = [
 export default function App() {
   const isActive: boolean = true;
   return (
-
+    
     <TamaguiProvider config={tamaguiConfig}>
+      
       <View style={styles.container}>
         <ScrollView
                 width="100%"
