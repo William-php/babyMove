@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
-import type { CheckboxProps } from "tamagui";
-import { Checkbox, Input, Label, Text, XStack, YStack } from "tamagui";
-import { Check } from "@tamagui/lucide-icons";
+import type { CheckboxProps, FontSizeTokens, SelectProps } from "tamagui";
+import { Checkbox, Input, Label, Text, XStack, YStack, Select, Adapt, Sheet, getFontSize } from "tamagui";
+import { Check, ChevronDown, ChevronUp } from "@tamagui/lucide-icons";
 import ConfirmButton from "../semanticComponents/ModifiedButton";
 import ModifiedButton from "../semanticComponents/ModifiedButton";
 
+
 let checkboxProps: CheckboxProps;
-export default function UserFormView() {
+let selectProps: SelectProps;
+export default function UserFormView(props: any) {
     const style = StyleSheet.create({
         container: {
             width: "100%",
@@ -70,6 +72,8 @@ export default function UserFormView() {
             gap: 16
         }
     });
+    const [val, setValue] = useState("Feminino");
+
     return (
         <YStack style={style.container}>
             <YStack style = {style.titlesContainer}>
@@ -137,12 +141,115 @@ export default function UserFormView() {
                     />
                 </YStack>
             </XStack>
-            
+            <YStack style = {style.inputContainer}>
+                <Text style = {style.labelInput}>Gênero</Text>
+                {
+                 <Select value={val} onValueChange={setValue} disablePreventBodyScroll {...props}>
+                 <Select.Trigger width={220} iconAfter={ChevronDown}>
+                     <Select.Value placeholder="Something" />
+                 </Select.Trigger>
+                 <Adapt when="sm" platform="touch">
+                     <Sheet
+                         native={!!props.native}
+                         modal
+                         dismissOnSnapToBottom
+                         animationConfig={{
+                             type: 'spring',
+                             damping: 20,
+                             mass: 1.2,
+                             stiffness: 250,
+                         }}
+                     >
+                         <Sheet.Frame>
+                             <Sheet.ScrollView>
+                                 <Adapt.Contents />
+                             </Sheet.ScrollView>
+                         </Sheet.Frame>
+                         <Sheet.Overlay
+                             animation="lazy"
+                             enterStyle={{ opacity: 0 }}
+                             exitStyle={{ opacity: 0 }}
+                         />
+                     </Sheet>
+                 </Adapt>
+     
+                 <Select.Content zIndex={200000}>
+                     <Select.ScrollUpButton
+                         alignItems="center"
+                         justifyContent="center"
+                         position="relative"
+                         width="100%"
+                         height="$3"
+                     >
+                         <YStack zIndex={10}>
+                             <ChevronUp size={20} />
+                         </YStack>
+                     </Select.ScrollUpButton>
+     
+                     <Select.Viewport
+                         minWidth={200}
+                     >
+     
+                         <Select.Group>
+                             <Select.Label>Gênero</Select.Label>
+                             {React.useMemo(
+                                 () =>
+                                     props.items.map((item: any, i: number) => {
+                                         return (
+                                             <Select.Item
+                                                 index={i}
+                                                 key={item.name}
+                                                 value={item.name.toLowerCase()}
+                                             >
+                                                 <Select.ItemText>{item.name}</Select.ItemText>
+                                                 <Select.ItemIndicator marginLeft="auto">
+                                                     <Check size={16} />
+                                                 </Select.ItemIndicator>
+                                             </Select.Item>
+                                         )
+     
+                                     }),
+                                 [props.items]
+                             )}
+                         </Select.Group>
+     
+                         {/* Native gets an extra icon */}
+                         {props.native && (
+                             <YStack
+                                 position="absolute"
+                                 right={0}
+                                 top={0}
+                                 bottom={0}
+                                 alignItems="center"
+                                 justifyContent="center"
+                                 width={'$4'}
+                                 pointerEvents="none"
+                             >
+                                 <ChevronDown
+                                     size={getFontSize((props.size as FontSizeTokens) ?? '$true')}
+                                 />
+                             </YStack>
+                         )}
+                     </Select.Viewport>
+                     <Select.ScrollDownButton
+                         alignItems="center"
+                         justifyContent="center"
+                         position="relative"
+                         width="100%"
+                         height="$3"
+                     >
+                         <YStack zIndex={10}>
+                             <ChevronDown size={20} />
+                         </YStack>
+                     </Select.ScrollDownButton>
+                 </Select.Content>
+             </Select>
+                }
+            </YStack>
             <XStack
                 width = "100%"
                 alignItems = "center"
-                gap = "$4"
-                
+                gap = "$4"                
             >
 
                 <Checkbox

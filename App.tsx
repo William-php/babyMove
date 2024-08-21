@@ -37,6 +37,10 @@ declare module '@tamagui/core' {
   interface TamaguiCustomConfig extends Conf {}
 
 }
+const items = [
+  {name: "Masculino"},
+  {name: "Feminino"},
+]
 export default function App() {
   const isActive: boolean = true;
   return (
@@ -81,11 +85,13 @@ export default function App() {
             phoneNumber="71 99999-9999"
           />
           <ViewRegister/>
-          <UserFormView/>
           <MealModalView/>
           <MealRegisterView/>
-          */}
           <LoginView/>
+          */}
+          <UserFormView
+            items = {items}
+          />
         </ScrollView>
       </View>
     </TamaguiProvider>
