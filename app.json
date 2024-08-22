@@ -27,7 +27,9 @@
       "**/*"
     ],
     "fonts": [
-      "./assets/fonts/Pacifico-Regular.ttf"
+      "./assets/fonts/Pacifico-Regular.ttf",
+      "./assets/fonts/Inter-Italic-VariableFont_opsz,wght.ttf",
+      "./assets/fonts/Inter-VariableFont_opsz,wght.ttf"
     ]
   }
 }

@@ -12,7 +12,7 @@ import { ArrowLeft } from "@tamagui/lucide-icons";
 import Header from './src/components/containerComponents/Header';
 
 /*semantic components*/
-import ViewList from './src/components/semanticComponents/viewList';
+
 import CardTypeMeal from './src/components/semanticComponents/CardTypeMeal';
 import CardEvent from './src/components/semanticComponents/CardEvent';
 import Profile from './src/components/semanticComponents/Profile';
@@ -142,25 +142,25 @@ export default function App() {
               phoneNumber="71 99999-9999"
               />
               <ViewRegister/>
-              <UserFormView
-              icon = {ArrowLeft}
-              />
-              <MealModalView 
-              icon = {ArrowLeft}
-              cards = {cardsMeal}
-              />
-              <MealRegisterView 
-              icon = {ArrowLeft}
-              cards = {cardsTypeMeal}
-              />
               <CardEvent
               event = "Sintomas"
               label = "Clique no + para adicionar sintomas. Clique em qualquer outra área dessa caixa para visualizar a listagem de sintomas"
               listEvents = {[]}
               color = '#C9BFFE'
               />
-              */}
               <LoginView/>
+              <UserFormView
+              icon = {ArrowLeft}
+              />
+              <MealRegisterView 
+              icon = {ArrowLeft}
+              cards = {cardsMeal}
+              />
+              */}
+              <MealModalView
+                icon = {ArrowLeft}
+                cards = {cardsTypeMeal}
+              />
           
             </ScrollView>
         </View>

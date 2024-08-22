@@ -10,6 +10,7 @@ import ModifiedButton from "../semanticComponents/ModifiedButton";
 let checkboxProps: CheckboxProps;
 
 export default function UserFormView(props: any) {
+    const [isFocusActive, setFocusActive] = useState(false);
     const style = StyleSheet.create({
         
         container: {
@@ -38,6 +39,7 @@ export default function UserFormView(props: any) {
         labelInput: {
             fontSize: 12,
             fontWeight: "bold",
+            fontFamily: "Inter",
             color: "#2F3036"
         },
         labelCheck: {
@@ -64,7 +66,18 @@ export default function UserFormView(props: any) {
             borderRadius: 12,
             borderWidth: 1,
             borderStyle: "solid",
-            borderColor: "#C5C6CC"
+            borderColor: "#C5C6CC",
+        },
+        inputFocus: {
+            height: 48,
+            paddingHorizontal: 16,
+            paddingVertical: 12,
+            alignItems: "center",
+    
+            borderRadius: 12,
+            borderWidth: 1,
+            borderStyle: "solid",
+            borderColor: "#A78BFA",
         },
         inputContainerX: {
             width: "45%",
@@ -91,7 +104,13 @@ export default function UserFormView(props: any) {
                 </YStack>
                 <YStack style={style.inputContainer}>
                     <Text style = {style.labelInput}>Nome completo</Text>
-                    <Input                                                
+                    <Input
+                        focusStyle = {
+                            {outlineColor: '#A78BFA',
+                            outlineWidth: 1,
+                            outlineStyle: 'solid',}
+                        }
+                        outlineColor={"#A78BFA"}
                         style={style.input}
                         placeholder="Seu nome"
                         inputMode="text"
@@ -100,7 +119,12 @@ export default function UserFormView(props: any) {
                 </YStack>
                 <YStack style={style.inputContainer}>
                     <Text style = {style.labelInput}>Email</Text>
-                    <Input 
+                    <Input
+                        focusStyle = {
+                            {outlineColor: '#A78BFA',
+                            outlineWidth: 1,
+                            outlineStyle: 'solid',}
+                        }
                         style={style.input}
                         placeholder="seuemail@email.com"
                         inputMode="email"
@@ -110,6 +134,11 @@ export default function UserFormView(props: any) {
                 <YStack style={style.inputContainer}>
                     <Text style = {style.labelInput}>Senha</Text>
                     <Input
+                        focusStyle = {
+                            {outlineColor: '#A78BFA',
+                            outlineWidth: 1,
+                            outlineStyle: 'solid',}
+                        }
                         selectTextOnFocus = {true}
                         style={style.input}
                         placeholder="Crie uma senha segura"
@@ -119,6 +148,11 @@ export default function UserFormView(props: any) {
                 </YStack>
                 <YStack>
                     <Input 
+                        focusStyle = {
+                            {outlineColor: '#A78BFA',
+                            outlineWidth: 1,
+                            outlineStyle: 'solid',}
+                        }
                         style={style.input}
                         placeholder="Crie uma senha segura"
                         placeholderTextColor={"#8F9098"}
@@ -128,6 +162,11 @@ export default function UserFormView(props: any) {
                 <YStack style={style.inputContainer}>
                     <Text style = {style.labelInput}>Endereço</Text>
                     <Input
+                        focusStyle = {
+                            {outlineColor: '#A78BFA',
+                            outlineWidth: 1,
+                            outlineStyle: 'solid',}
+                        }
                         style={style.input}
                         placeholder="Seu endereço"
                         placeholderTextColor={"#8F9098"}
@@ -137,6 +176,11 @@ export default function UserFormView(props: any) {
                     <YStack style={style.inputContainerX}>
                         <Text style = {style.labelInput}>Data de Nascimento</Text>
                         <Input 
+                            focusStyle = {
+                                {outlineColor: '#A78BFA',
+                                outlineWidth: 1,
+                                outlineStyle: 'solid',}
+                            }
                             style={style.input}
                             placeholder="dd/MM/yyyy"
                             placeholderTextColor={"#8F9098"}                        
@@ -145,6 +189,11 @@ export default function UserFormView(props: any) {
                     <YStack style={style.inputContainerX}>
                         <Text style = {style.labelInput}>Telefone</Text>
                         <Input
+                            focusStyle = {
+                                {outlineColor: '#A78BFA',
+                                outlineWidth: 1,
+                                outlineStyle: 'solid',}
+                            }
                             style={style.input}
                             placeholder="71 999999999"
                             placeholderTextColor={"#8F9098"}
@@ -154,6 +203,11 @@ export default function UserFormView(props: any) {
                 <YStack style={style.inputContainerX}>
                         <Text style = {style.labelInput}>Gênero</Text>
                         <Input
+                            focusStyle = {
+                                {outlineColor: '#A78BFA',
+                                outlineWidth: 1,
+                                outlineStyle: 'solid',}
+                            }
                             style={style.input}
                             placeholder="Feminino"
                             placeholderTextColor={"#8F9098"}
