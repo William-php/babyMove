@@ -7,12 +7,18 @@ export default function LoginView() {
         container: {
             width: "100%",
             height: "100%"
+        },
+        h1: {
+            fontFamily: "Pacifico",
+            color: "#F5F3FF",
+            fontSize: 40,
+            fontWeight: "400",        
         }
     })
     return (
         <>
             <XStack w={"100 %"} h={312} ai={'center'} jc={'center'} bg={'#A78BFA'}>
-                <H1 style = {{color: "#fff"}}>Baby Move</H1>
+                <H1 style = {style.h1}>Baby Move</H1>
             </XStack>
             <YStack 
                 style = {style.container}

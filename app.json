@@ -22,6 +22,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "assetsBundlePatterns": [
+      "**/*"
+    ],
+    "fonts": [
+      "./assets/fonts/Pacifico-Regular.ttf"
+    ]
   }
 }

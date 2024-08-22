@@ -117,35 +117,29 @@ export default function App() {
               <XStack w={"100 %"} h={312} ai={'center'} jc={'center'} bg={'#A78BFA'}>
                         <H1 style = {{color: "#fff"}}>Baby Move</H1>
                     </XStack>
-              <CardEvent
-                event = "Sintomas"
-                label = "Clique no + para adicionar sintomas. Clique em qualquer outra área dessa caixa para visualizar a listagem de sintomas"
-                listEvents = {[]}
-                color = '#C9BFFE'
-              />
-              <CardTypeMeal
+                    <CardTypeMeal
                     image = {
-                        {url: require("./assets/imgs/breakfast.jpg")}
-                    }
-                    typeMeal = "Café da manhã"
-                    color = "#FFF4E4"
-                />
-                <CardMeal
-                    type = "Café da manhã"
-                    date = {new Date()}
-                    hour = {9}
-                    minutes = {30}
-                    icon = {
                       {url: require("./assets/imgs/breakfast.jpg")}
-                    }
-                    color = "#FFF4E4"
-                />
-                */}
+                      }
+                      typeMeal = "Café da manhã"
+                      color = "#FFF4E4"
+                      />
+                      <CardMeal
+                      type = "Café da manhã"
+                      date = {new Date()}
+                      hour = {9}
+                      minutes = {30}
+                      icon = {
+                        {url: require("./assets/imgs/breakfast.jpg")}
+                        }
+                        color = "#FFF4E4"
+                        />
+                        */}
               {/*
               <ViewList
-                name="William Ferreira"
-                func="Obstreta"
-                phoneNumber="71 99999-9999"
+              name="William Ferreira"
+              func="Obstreta"
+              phoneNumber="71 99999-9999"
               />
               <ViewRegister/>
               <UserFormView
@@ -158,6 +152,12 @@ export default function App() {
               <MealRegisterView 
               icon = {ArrowLeft}
               cards = {cardsTypeMeal}
+              />
+              <CardEvent
+              event = "Sintomas"
+              label = "Clique no + para adicionar sintomas. Clique em qualquer outra área dessa caixa para visualizar a listagem de sintomas"
+              listEvents = {[]}
+              color = '#C9BFFE'
               />
               */}
               <LoginView/>
