@@ -4,47 +4,44 @@ import ModifiedButton from "../semanticComponents/ModifiedButton";
 import { Check } from "@tamagui/lucide-icons";
 import CardMeal from "../semanticComponents/CardMeal";
 import CardTypeMeal from "../semanticComponents/CardTypeMeal";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 let checkboxProps: CheckboxProps;
-export default function MealRegisterView(): React.JSX.Element {
-    function listMealRegister(): Array<React.JSX.Element> {
-        const list: Array<React.JSX.Element> = [];
-        for (let i = 0; i < 4; i++) {
-            list.push(
-                <XStack
-                    width = "100%"
-                    alignItems = "center"
-                    gap = "$4"
-                    height = {120}
-                >
-                    <Checkbox
-                        id = "checkbox"
-                        size = {24}
-                        {...checkboxProps}
-                        height = {24}
-                        width = {24}
-                        borderRadius = {6}
-                    >
-                        <Checkbox.Indicator>
-                            <Check/>
-                        </Checkbox.Indicator>
-                    </Checkbox>
-                    <YStack
-                        width= "88%"
-                    >
-                        
-                        <CardTypeMeal                                
-                            image = {{url: require("../../../assets/imgs/breakfast.jpg")}}
-                            typeMeal = "Café da manhã"
-                            color = "#FFF4E4"
-                        />
-                    </YStack>                                            
-                </XStack>
-            )
-        }
-        return list;
-    }
+export default function MealRegisterView(props: any): React.JSX.Element {
+    function listMealRegister(cardsTypeMeal: Array<any>): Array<React.JSX.Element> {
+        const LIST: Array<React.JSX.Element> = cardsTypeMeal.map((cardTypeMeal: any) => {
+            return <XStack
+            width = "100%"
+            alignItems = "center"
+            gap = "$4"
+            height = {120}
+        >
+            <Checkbox
+                id = "checkbox"
+                size = {24}
+                {...checkboxProps}
+                height = {24}
+                width = {24}
+                borderRadius = {6}
+            >
+                <Checkbox.Indicator>
+                    <Check/>
+                </Checkbox.Indicator>
+            </Checkbox>
+            <YStack
+                width= "88%"
+            >
+                
+                <CardTypeMeal                                
+                    image = {cardTypeMeal.image}
+                    typeMeal = {cardTypeMeal.typeMeal}
+                    color = {cardTypeMeal.color}
+                />
+            </YStack>                                            
+        </XStack>
+        });
+        return LIST;
+    }    
     const style = StyleSheet.create({
         container: {
             width: "100%",
@@ -91,10 +88,28 @@ export default function MealRegisterView(): React.JSX.Element {
             gap: 8,
             marginBottom: 16,
             
+        },
+        icon: {
+            alignItems: "center",
+            marginTop: 20,
+            gap: 8
+        },
+        title: {
+            fontSize: 18,
+            fontWeight: "400",
+            color: "#71727A",            
         }
-    })
+    });
     return (
         <YStack style = {style.container}>
+            <XStack style = {style.icon}>
+                   <View>
+                        {<props.icon/>}
+                    </View> 
+                    <Text style = {style.title}>
+                        Refeições realizadas
+                    </Text>
+            </XStack>
             <YStack style={style.inputContainer}>
                 <Text style = {style.labelInput}>
                     Descrição
@@ -136,7 +151,7 @@ export default function MealRegisterView(): React.JSX.Element {
             <YStack >
                 <Text style = {style.listTitle}>Selecione o tipo de refeição</Text>
                 <YStack style = {style.listContainer}> 
-                    {listMealRegister()}               
+                    {listMealRegister(props.cards)}               
                 </YStack>
                 
                 <ModifiedButton

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import type { CheckboxProps, FontSizeTokens, SelectProps } from "tamagui";
 import { Checkbox, Input, Label, Text, XStack, YStack, Select, Adapt, Sheet, getFontSize } from "tamagui";
 import { Check, ChevronDown, ChevronUp } from "@tamagui/lucide-icons";
@@ -11,9 +11,13 @@ let checkboxProps: CheckboxProps;
 
 export default function UserFormView(props: any) {
     const style = StyleSheet.create({
+        
         container: {
             width: "100%",
             gap: 16
+        },
+        icon: {
+            marginTop: 20
         },
         inputContainer: {
             gap: 8,
@@ -33,7 +37,7 @@ export default function UserFormView(props: any) {
         },
         labelInput: {
             fontSize: 12,
-            fontWeight: 700,
+            fontWeight: "bold",
             color: "#2F3036"
         },
         labelCheck: {
@@ -75,110 +79,116 @@ export default function UserFormView(props: any) {
     const [val, setValue] = useState("Feminino");
 
     return (
-        <YStack style={style.container}>
-            <YStack style = {style.titlesContainer}>
-                <Text style = {style.h1}>Faça seu cadastro</Text>
-                <Text style = {style.h2}>Crie uma conta para aproveitar nossos serviços</Text>
-            </YStack>
-            <YStack style={style.inputContainer}>
-                <Text style = {style.labelInput}>Nome completo</Text>
-                <Input
-                    style={style.input}
-                    placeholder="Seu nome"
-                    inputMode="text"
-                    placeholderTextColor={"#8F9098"}
-                />
-            </YStack>
-            <YStack style={style.inputContainer}>
-                <Text style = {style.labelInput}>Email</Text>
-                <Input 
-                    style={style.input}
-                    placeholder="seuemail@email.com"
-                    inputMode="email"
-                    placeholderTextColor={"#8F9098"}
-                />
-            </YStack>
-            <YStack style={style.inputContainer}>
-                <Text style = {style.labelInput}>Senha</Text>
-                <Input 
-                    style={style.input}
-                    placeholder="Crie uma senha segura"
-                    placeholderTextColor={"#8F9098"}
-                    secureTextEntry={true}
-                />
-            </YStack>
-            <YStack>
-                <Input 
-                    style={style.input}
-                    placeholder="Crie uma senha segura"
-                    placeholderTextColor={"#8F9098"}
-                    secureTextEntry={true}
-                />
-            </YStack>
-            <YStack style={style.inputContainer}>
-                <Text style = {style.labelInput}>Endereço</Text>
-                <Input
-                    style={style.input}
-                    placeholder="Seu endereço"
-                    placeholderTextColor={"#8F9098"}
-                />
-            </YStack>
-            <XStack style={style.row}>
-                <YStack style={style.inputContainerX}>
-                    <Text style = {style.labelInput}>Data de Nascimento</Text>
-                    <Input 
+        <YStack style={style.container}>                
+                <YStack style = {style.icon}>
+                   <View>
+                        {<props.icon/>}
+                    </View> 
+                </YStack>
+                <YStack style = {style.titlesContainer}>
+                    <Text style = {style.h1}>Faça seu cadastro</Text>
+                    <Text style = {style.h2}>Crie uma conta para aproveitar nossos serviços</Text>
+                </YStack>
+                <YStack style={style.inputContainer}>
+                    <Text style = {style.labelInput}>Nome completo</Text>
+                    <Input                                                
                         style={style.input}
-                        placeholder="dd/MM/yyyy"
+                        placeholder="Seu nome"
+                        inputMode="text"
                         placeholderTextColor={"#8F9098"}                        
                     />
                 </YStack>
+                <YStack style={style.inputContainer}>
+                    <Text style = {style.labelInput}>Email</Text>
+                    <Input 
+                        style={style.input}
+                        placeholder="seuemail@email.com"
+                        inputMode="email"
+                        placeholderTextColor={"#8F9098"}
+                    />
+                </YStack>
+                <YStack style={style.inputContainer}>
+                    <Text style = {style.labelInput}>Senha</Text>
+                    <Input
+                        selectTextOnFocus = {true}
+                        style={style.input}
+                        placeholder="Crie uma senha segura"
+                        placeholderTextColor={"#8F9098"}
+                        secureTextEntry={true}
+                    />
+                </YStack>
+                <YStack>
+                    <Input 
+                        style={style.input}
+                        placeholder="Crie uma senha segura"
+                        placeholderTextColor={"#8F9098"}
+                        secureTextEntry={true}
+                    />
+                </YStack>
+                <YStack style={style.inputContainer}>
+                    <Text style = {style.labelInput}>Endereço</Text>
+                    <Input
+                        style={style.input}
+                        placeholder="Seu endereço"
+                        placeholderTextColor={"#8F9098"}
+                    />
+                </YStack>
+                <XStack style={style.row}>
+                    <YStack style={style.inputContainerX}>
+                        <Text style = {style.labelInput}>Data de Nascimento</Text>
+                        <Input 
+                            style={style.input}
+                            placeholder="dd/MM/yyyy"
+                            placeholderTextColor={"#8F9098"}                        
+                        />
+                    </YStack>
+                    <YStack style={style.inputContainerX}>
+                        <Text style = {style.labelInput}>Telefone</Text>
+                        <Input
+                            style={style.input}
+                            placeholder="71 999999999"
+                            placeholderTextColor={"#8F9098"}
+                        />
+                    </YStack>
+                </XStack>
                 <YStack style={style.inputContainerX}>
-                    <Text style = {style.labelInput}>Telefone</Text>
-                    <Input
-                        style={style.input}
-                        placeholder="71 999999999"
-                        placeholderTextColor={"#8F9098"}
-                    />
-                </YStack>
-            </XStack>
-            <YStack style={style.inputContainerX}>
-                    <Text style = {style.labelInput}>Gênero</Text>
-                    <Input
-                        style={style.input}
-                        placeholder="Feminino"
-                        placeholderTextColor={"#8F9098"}
-                        selection={{start: 0, end: 4}}
-                    />
-                </YStack>
-                
-            <XStack
-                width = "100%"
-                alignItems = "center"
-                gap = "$4"                
-            >
-
-                <Checkbox
-                    id= "checkbox"
-                    size = {24}
-                    {...checkboxProps}
-                    height = {24}
-                    width = {24}
-                    borderRadius = {6}
+                        <Text style = {style.labelInput}>Gênero</Text>
+                        <Input
+                            style={style.input}
+                            placeholder="Feminino"
+                            placeholderTextColor={"#8F9098"}
+                            selection={{start: 0, end: 4}}
+                        />
+                    </YStack>
+                    
+                <XStack
+                    width = "100%"
+                    alignItems = "center"
+                    gap = "$4"                
                 >
-                    <Checkbox.Indicator>
-                        <Check/>
-                    </Checkbox.Indicator>
-                </Checkbox>
 
-                <Text style = {style.labelCheck} htmlFor = "checkbox">
-                    Eu declaro que lí e aceito os <Text style = {style.labelCheckColored}>Termos de Serviço</Text> e <Text style = {style.labelCheckColored}>a Política de Privacidade.</Text>
-                </Text>
-            </XStack>
-            <ModifiedButton
-                label = "Continuar"
-            />
-        </YStack>
-        
+                    <Checkbox
+                        id= "checkbox"
+                        size = {24}
+                        {...checkboxProps}
+                        height = {24}
+                        width = {24}
+                        borderRadius = {6}
+                    >
+                        <Checkbox.Indicator>
+                            <Check/>
+                        </Checkbox.Indicator>
+                    </Checkbox>
+
+                    <Text style = {style.labelCheck} htmlFor = "checkbox">
+                        Eu declaro que lí e aceito os <Text style = {style.labelCheckColored}>Termos de Serviço</Text> e <Text style = {style.labelCheckColored}>a Política de Privacidade.</Text>
+                    </Text>
+                </XStack>
+                <ModifiedButton
+                    label = "Continuar"
+                />
+                
+            </YStack>
         
     )
 }

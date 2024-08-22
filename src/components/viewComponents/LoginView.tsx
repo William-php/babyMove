@@ -1,15 +1,24 @@
 import { YStack, XStack, Paragraph, Text, H1, H3, Button, View, Separator, Avatar } from 'tamagui'
 import LoginForm from '../semanticComponents/LoginForm';
+import { StyleSheet } from 'react-native';
 
 export default function LoginView() {
-
+    const style = StyleSheet.create({
+        container: {
+            width: "100%",
+            height: "100%"
+        }
+    })
     return (
         <>
             <XStack w={"100 %"} h={312} ai={'center'} jc={'center'} bg={'#A78BFA'}>
-                <H1>Baby Move</H1>
+                <H1 style = {{color: "#fff"}}>Baby Move</H1>
             </XStack>
-            <YStack bg="$purple0" f={1} >
-                <H3 pl="$5" pt="$5" fontWeight='bold'>
+            <YStack 
+                style = {style.container}
+                bg="$purple0" f={1} 
+            >
+                <H3 pl="$5" pt="$5" fontWeight='bold' >
                     Seja bem-vindo(a)!
                 </H3>
 
@@ -42,7 +51,7 @@ export default function LoginView() {
                             <Avatar circular size="$5">
                                 <Avatar.Image
                                     accessibilityLabel="Cam"
-                                    src="https://static-00.iconduck.com/assets.00/apple-square-icon-512x512-ueysp2dm.png"
+                                    src= {require("../../../assets/imgs/apple.png")}
                                 />
                                 <Avatar.Fallback backgroundColor="$blue10" />
                             </Avatar>

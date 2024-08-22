@@ -7,7 +7,7 @@ import { Text } from "react-native";
 interface ImageInterface {
     url: any
 }
-interface CardMeal {
+interface CardMealInterface {
     type: string,
     date: Date,
     hour: number,
@@ -22,7 +22,7 @@ function convertDate(date: Date): string {
     const FULLDATE = `${DAY}/${MONTH}/${YEAR}`;
     return FULLDATE ? FULLDATE : "Date is not found";
 }
-export default function CardMeal(props: any) {
+export default function CardMeal(props: CardMealInterface) {
     const styles = StyleSheet.create({
         container: {
             width: "100%",
