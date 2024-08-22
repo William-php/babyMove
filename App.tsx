@@ -105,14 +105,15 @@ export default function App() {
     
     <TamaguiProvider config={tamaguiConfig}>
       <SafeAreaView>
-        <View style={styles.container}>
+          <LoginView/>
+        {/* <View style={styles.container}>
             <ScrollView
                     width="100%"
                     padding="$3"
                     maxHeight={"auto"}
             >
           
-              {/* 
+              
               <Header isActive={isActive}/>
               <XStack w={"100 %"} h={312} ai={'center'} jc={'center'} bg={'#A78BFA'}>
                         <H1 style = {{color: "#fff"}}>Baby Move</H1>
@@ -148,7 +149,6 @@ export default function App() {
               listEvents = {[]}
               color = '#C9BFFE'
               />
-              <LoginView/>
               <UserFormView
               icon = {ArrowLeft}
               />
@@ -156,7 +156,7 @@ export default function App() {
               icon = {ArrowLeft}
               cards = {cardsMeal}
               />
-              */}
+              
               <MealModalView
                 icon = {ArrowLeft}
                 cards = {cardsTypeMeal}
@@ -164,6 +164,7 @@ export default function App() {
           
             </ScrollView>
         </View>
+        */}
       </SafeAreaView>
     </TamaguiProvider>
 
