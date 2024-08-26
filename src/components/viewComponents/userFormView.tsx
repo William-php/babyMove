@@ -5,17 +5,19 @@ import { Checkbox, Input, Label, Text, XStack, YStack, Select, Adapt, Sheet, get
 import { Check, ChevronDown, ChevronUp } from "@tamagui/lucide-icons";
 import ConfirmButton from "../semanticComponents/ModifiedButton";
 import ModifiedButton from "../semanticComponents/ModifiedButton";
+import { ArrowLeft } from "@tamagui/lucide-icons";
 
 
 let checkboxProps: CheckboxProps;
 
-export default function UserFormView(props: any) {
+export default function UserFormView() {
     const [isFocusActive, setFocusActive] = useState(false);
     const style = StyleSheet.create({
         
         container: {
             width: "100%",
-            gap: 16
+            gap: 16,
+            padding: 8
         },
         icon: {
             marginTop: 20
@@ -95,7 +97,7 @@ export default function UserFormView(props: any) {
         <YStack style={style.container}>                
                 <YStack style = {style.icon}>
                    <View>
-                        {<props.icon/>}
+                        {<ArrowLeft/>}
                     </View> 
                 </YStack>
                 <YStack style = {style.titlesContainer}>

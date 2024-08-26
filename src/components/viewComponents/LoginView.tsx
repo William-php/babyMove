@@ -7,6 +7,7 @@ export default function LoginView() {
         container: {
             width: "100%",
             height: "100%"
+            
         },
         h1: {
             fontFamily: "Pacifico",

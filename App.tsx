@@ -57,7 +57,7 @@ const cardsMeal = [
     hour: 12,
     minutes: 30,
     icon: { url: require("./assets/imgs/front-view-man-having-lunch-restaurant.jpg") },
-    color: "#3ACDA0"
+    color: "#E7F4E8"
   },
   {
     type: "Jantar",
@@ -76,28 +76,6 @@ const cardsMeal = [
     color: "#FECACA"
   }
 ];
-const cardsTypeMeal = [
-  {
-    image: { url: require("./assets/imgs/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table.jpg") },
-    typeMeal: "Café da manhã",
-    color: "#FFF4E4"
-  },
-  {
-    image: { url: require("./assets/imgs/front-view-man-having-lunch-restaurant.jpg") },
-    typeMeal: "Almoço",
-    color: "#3ACDA0"
-  },
-  {
-    image: { url: require("./assets/imgs/christmas-dinner-with-family.jpg") },
-    typeMeal: "Jantar",
-    color: "#FFF4E4"
-  },
-  {
-    image: { url: require("./assets/imgs/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table.jpg") },
-    typeMeal: "Lanche",
-    color: "#FECACA"
-  }
-]
 
 export default function App() {
   const isActive: boolean = true;
@@ -105,66 +83,58 @@ export default function App() {
     
     <TamaguiProvider config={tamaguiConfig}>
       <SafeAreaView>
-          <LoginView/>
-        {/* <View style={styles.container}>
-            <ScrollView
-                    width="100%"
-                    padding="$3"
-                    maxHeight={"auto"}
-            >
-          
-              
-              <Header isActive={isActive}/>
+        <View style={styles.container}>
+              <ScrollView
+              width="100%"
+              padding="$3"
+              maxHeight={"auto"}
+              >
+            
+            
+              {/* <Header isActive={isActive}/>
               <XStack w={"100 %"} h={312} ai={'center'} jc={'center'} bg={'#A78BFA'}>
-                        <H1 style = {{color: "#fff"}}>Baby Move</H1>
-                    </XStack>
-                    <CardTypeMeal
-                    image = {
-                      {url: require("./assets/imgs/breakfast.jpg")}
-                      }
-                      typeMeal = "Café da manhã"
-                      color = "#FFF4E4"
-                      />
-                      <CardMeal
-                      type = "Café da manhã"
-                      date = {new Date()}
-                      hour = {9}
-                      minutes = {30}
-                      icon = {
-                        {url: require("./assets/imgs/breakfast.jpg")}
-                        }
+              <H1 style = {{color: "#fff"}}>Baby Move</H1>
+              </XStack>
+              <LoginView/>
+              <CardTypeMeal
+              image = {
+                {url: require("./assets/imgs/breakfast.jpg")}
+                }
+                typeMeal = "Café da manhã"
                         color = "#FFF4E4"
                         />
-                        */}
-              {/*
-              <ViewList
-              name="William Ferreira"
-              func="Obstreta"
-              phoneNumber="71 99999-9999"
-              />
-              <ViewRegister/>
-              <CardEvent
-              event = "Sintomas"
-              label = "Clique no + para adicionar sintomas. Clique em qualquer outra área dessa caixa para visualizar a listagem de sintomas"
-              listEvents = {[]}
-              color = '#C9BFFE'
-              />
-              <UserFormView
-              icon = {ArrowLeft}
-              />
-              <MealRegisterView 
-              icon = {ArrowLeft}
-              cards = {cardsMeal}
-              />
-              
-              <MealModalView
-                icon = {ArrowLeft}
-                cards = {cardsTypeMeal}
-              />
-          
-            </ScrollView>
-        </View>
-        */}
+                        <CardMeal
+                        type = "Café da manhã"
+                        date = {new Date()}
+                        hour = {9}
+                        minutes = {30}
+                        icon = {
+                          {url: require("./assets/imgs/breakfast.jpg")}
+                          }
+                          color = "#FFF4E4"
+                          />
+                          */}
+                {/*
+                <ViewList
+                name="William Ferreira"
+                func="Obstreta"
+                phoneNumber="71 99999-9999"
+                />
+                <ViewRegister/>
+                <CardEvent
+                event = "Sintomas"
+                label = "Clique no + para adicionar sintomas. Clique em qualquer outra área dessa caixa para visualizar a listagem de sintomas"
+                listEvents = {[]}
+                color = '#C9BFFE'
+                />
+                <UserFormView/>
+                
+                
+                <MealModalView/>
+                */}
+                <MealRegisterView/>
+                </ScrollView>
+            </View>
       </SafeAreaView>
     </TamaguiProvider>
 

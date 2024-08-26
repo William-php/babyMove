@@ -2,12 +2,34 @@ import React from "react";
 import { Checkbox, CheckboxProps, Input, Text, XStack, YStack } from "tamagui";
 import ModifiedButton from "../semanticComponents/ModifiedButton";
 import { Check } from "@tamagui/lucide-icons";
-import CardMeal from "../semanticComponents/CardMeal";
 import CardTypeMeal from "../semanticComponents/CardTypeMeal";
 import { StyleSheet, View } from "react-native";
+import { ArrowLeft } from "@tamagui/lucide-icons";
 
 let checkboxProps: CheckboxProps;
-export default function MealModalView(props: any): React.JSX.Element {
+const cardsTypeMeal = [
+    {
+      image: { url: require("../../../assets/imgs/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table.jpg") },
+      typeMeal: "Café da manhã",
+      color: "#FFF4E4"
+    },
+    {
+      image: { url: require("../../../assets/imgs/front-view-man-having-lunch-restaurant.jpg") },
+      typeMeal: "Almoço",
+      color: "#E7F4E8"
+    },
+    {
+      image: { url: require("../../../assets/imgs/christmas-dinner-with-family.jpg") },
+      typeMeal: "Jantar",
+      color: "#FFF4E4"
+    },
+    {
+      image: { url: require("../../../assets/imgs/big-sandwich-hamburger-with-juicy-beef-burger-cheese-tomato-red-onion-wooden-table.jpg") },
+      typeMeal: "Lanche",
+      color: "#FECACA"
+    }
+  ]
+export default function MealModalView(): React.JSX.Element {
     function listMealRegister(cardsTypeMeal: Array<any>): Array<React.JSX.Element> {
         const LIST: Array<React.JSX.Element> = cardsTypeMeal.map((cardTypeMeal: any) => {
             return <XStack
@@ -46,7 +68,8 @@ export default function MealModalView(props: any): React.JSX.Element {
         container: {
             width: "100%",
             justifyContent: "center",
-            gap: 16
+            gap: 16,
+            padding: 8
         },
         input: {
             height: 48,
@@ -104,7 +127,7 @@ export default function MealModalView(props: any): React.JSX.Element {
         <YStack style = {style.container}>
             <XStack style = {style.icon}>
                    <View>
-                        {<props.icon/>}
+                        {<ArrowLeft/>}
                     </View> 
                     <Text style = {style.title}>
                         Refeições realizadas
@@ -166,7 +189,7 @@ export default function MealModalView(props: any): React.JSX.Element {
             <YStack >
                 <Text style = {style.listTitle}>Selecione o tipo de refeição</Text>
                 <YStack style = {style.listContainer}> 
-                    {listMealRegister(props.cards)}               
+                    {listMealRegister(cardsTypeMeal)}               
                 </YStack>
                 
                 <ModifiedButton
